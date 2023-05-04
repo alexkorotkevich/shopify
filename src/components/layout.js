@@ -1,6 +1,7 @@
+import { graphql, useStaticQuery } from "gatsby"
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import img from "../images/main-image.jpeg"
 
 import Header from "./header"
 import "./layout.css"
@@ -21,19 +22,18 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div>
         <main>
-          <BodySection>
-            {children}
-          </BodySection>
-          </main>
+          <BodySection>{children}</BodySection>
+        </main>
       </div>
       <Footer>
         <div>
-          Built with {" "}
-          <a href="https://www.gatsbyjs.com">Gatsby</a> and <a href="https://www.shopify.com">Shopify</a>
+          Built with <a href="https://www.gatsbyjs.com">Gatsby</a> and{" "}
+          <a href="https://www.shopify.com">Shopify</a>
         </div>
 
         <div>
-          ©<a href="https://github.com/krononsoft">Krononsoft</a>, {new Date().getFullYear()}
+          ©<a href="https://github.com/krononsoft">Krononsoft</a>,{" "}
+          {new Date().getFullYear()}
         </div>
       </Footer>
     </>
@@ -46,7 +46,8 @@ const Footer = styled.footer`
   background-color: #292c2f;
   bottom: 0;
   color: #bbb;
-  font-family: BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu, Cantarell,"Open Sans", "Helvetica Neue", sans-serif;
+  font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 18px;
   height: 100px;
   position: absolute;
@@ -58,19 +59,20 @@ const Footer = styled.footer`
     text-decoration: none;
   }
 
-  a:hover, footer a:focus {
+  a:hover,
+  footer a:focus {
     color: #aaa;
-    text-decoration:none;
-    border-bottom:1px dotted #999;
+    text-decoration: none;
+    border-bottom: 1px dotted #999;
   }
 `
 
 const BodySection = styled.div`
   text-align: center;
   vertical-align: center;
-  background-image: url("../images/main-image.jpeg");
+  background-image: url(${img});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
+  height: 100vh;
 `
