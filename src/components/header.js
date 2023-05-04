@@ -2,7 +2,7 @@ import * as React from "react"
 import styled from "styled-components"
 
 import { Link } from "gatsby"
-
+console.log("1")
 const Header = ({ siteTitle }) => (
   <HeaderWrapper>
     <Link to="/" className="site-title">{siteTitle}</Link>
