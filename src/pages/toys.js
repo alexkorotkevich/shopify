@@ -1,10 +1,10 @@
-import React from "react"
 import { graphql } from "gatsby"
+import React from "react"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout/Layout"
+import ProductCard from "../components/ToysCard/ToysCard"
 import Seo from "../components/seo"
-import ProductCard from "../components/ProductCard"
 
 const Toys = ({ data }) => {
   const { nodes } = data.allShopifyProduct
@@ -13,16 +13,19 @@ const Toys = ({ data }) => {
     <Layout>
       <Seo title="Products" />
       <Wrapper>
-        {nodes?.map((product, index) => (<ProductCard key={index} product={product} />))}
+        {nodes?.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
       </Wrapper>
-    </Layout>)
+    </Layout>
+  )
 }
 
 export default Toys
 
 export const query = graphql`
-	{
-		allShopifyProduct {
+  {
+    allShopifyProduct {
       nodes {
         title
         handle
@@ -44,14 +47,14 @@ export const query = graphql`
         }
       }
     }
-	}
+  }
 `
 
 const Wrapper = styled.div`
-	display: grid;
-	margin: 40px;
-	grid-template-columns: repeat(3, auto);
-	justify-content: left;
-	gap:40px;
-	max-width: 1234px;
+  display: grid;
+  margin: 40px;
+  grid-template-columns: repeat(3, auto);
+  justify-content: left;
+  gap: 40px;
+  max-width: 1234px;
 `

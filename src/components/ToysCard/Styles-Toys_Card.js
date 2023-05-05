@@ -1,26 +1,6 @@
-import React from "react"
-import { navigate } from "gatsby-link"
 import styled from "styled-components"
 
-const ProductCard = ({ product }) => {
-  // console.log("product", product.title)
-  return (
-    <Wrapper>
-      <AddButton onClick={() => alert("Added to cart!")}><p>+</p></AddButton>
-      <ContentWrapper onClick={() => navigate(`${product.handle}`)}>
-        <Image src={product.media[0]?.image.src} />
-        <TextWrapper>
-          <Title>{product.title}</Title>
-          <Price>{product.priceRangeV2.maxVariantPrice.amount}$</Price>
-        </TextWrapper>
-      </ContentWrapper>
-    </Wrapper>
-  )
-}
-
-export default ProductCard
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
@@ -33,9 +13,9 @@ const Wrapper = styled.div`
     0px 1px 3px rgba(0, 0, 0, 0.05);
 `
 
-const ContentWrapper = styled.div``
+export const ContentWrapper = styled.div``
 
-const Image = styled.img`
+export const Image = styled.img`
   width: 200px;
   height: 300px;
   object-fit: cover;
@@ -43,7 +23,7 @@ const Image = styled.img`
   margin: 0;
 `
 
-const TextWrapper = styled.div`
+export const TextWrapper = styled.div`
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -54,20 +34,20 @@ const TextWrapper = styled.div`
   backdrop-filter: blur(40px);
 `
 
-const Title = styled.p`
+export const Title = styled.p`
   font-weight: 600;
   text-align: center;
   margin: 0;
   color: #014c40;
 `
 
-const Price = styled.p`
+export const Price = styled.p`
   font-weight: normal;
   text-align: center;
   margin: 0;
 `
 
-const AddButton = styled.div`
+export const AddButton = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
@@ -89,7 +69,7 @@ const AddButton = styled.div`
     text-align: center;
     font-weight: bold;
     line-height: 0;
-    @media not all and (min-resolution:.001dpcm) { 
+    @media not all and (min-resolution: 0.001dpcm) {
       @supports (-webkit-appearance: none) {
         margin-bottom: 5px;
       }
