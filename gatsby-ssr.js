@@ -5,8 +5,11 @@
  */
 
 /**
- * @type {import('gatsby').GatsbySSR['onRenderBody']}
- */
-exports.onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: `en` })
-}
+//  * @type {import('gatsby').GatsbySSR['onRenderBody']}
+//  */
+// exports.onRenderBody = ({ setHtmlAttributes }) => {
+//   setHtmlAttributes({ lang: `en` })
+// }
+import CombinedProvider from "./src/context/CombinedProvider"
+
+export const wrapRootElement = CombinedProvider
